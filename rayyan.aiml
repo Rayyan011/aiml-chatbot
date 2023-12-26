@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml>
+    
+  <category>
+      <pattern>*</pattern>
+      <template>I have no answer for that</template>
+    </category>
+    
+    <category>
+        <pattern>^ what is *</pattern>
+        <template>
+            <think><set name= "typesknowledge"><star index="2"/></set></think>
+                <condition name= "typesknowledge">
+                <li value = "long dash term knowledge">Long-term knowledge is valid every time a programme is run.</li>
+                <li value = "short dash term knowledge">Short-term knowledge is only valid for a particular instance or run of a programme.</li>
+                <li value = "generic knowledge">Generic knowledge is relevant to more than one application or domain</li>
+                <li value = "domain dash specific knowledge">Domain-specific knowledge is only applicable to one specific application or domain.</li>
+                <li value = "a fact">A fact is a statement which asserts that a relationship holds for an object-subject pair.</li>
+                <li value = "a rule">A rule is a statement that generates new knowledge by asserting that if one fact is true, then another is also true</li>
+           </condition>
+        </template>
+    </category>
+   <category>
+      <pattern>^ an example of *</pattern>
+      <template>
+          <think> <set name = "example"><star index = "2"/></set></think>
+          <condition name = "example">
+              <li value = "long dash term generic knowledge">The equations of motion used to calculate the flight-path of a bird in the game Angry Birds.</li>
+              <li value = "long dash term domain dash specific knowledge">The weight of the different types of birds in the game Angry Birds.</li>
+              <li value = "short dash term generic knowledge">The date on which a specific episode of Angry Birds is played is generic because it could also be used by another programme.</li>
+              <li value = "short dash term domain dash specific knowledge">The number of birds that a user has fired in a particular episode of Angry Birds.</li>
+              <li value = "a rule">If isUWEStaff(X) then hasUWEPhone (X).</li>
+              <li value = "a fact">Jim Smith from UWE hasUWEPhoneNumber 0117 3287417.</li>
+          </condition>
+      </template>
+  </category>
+  
+ <category>
+     <pattern>Illustrate the concept of *</pattern>
+     <template><srai>an example of <star/></srai></template>
+ </category>
+ 
+  <category>
+     <pattern>Describe *</pattern>
+     <template><srai>what is <star/></srai></template>
+     
+     
+ </category>
+ <category>
+     <pattern>How does AIML provide context during a conversation</pattern>
+     <template>AIML supports context through the use of the that tag to refer to previous bot answers, and via setting variables such as topic</template>
+ </category>
+ <category>
+     <pattern>Why is knowing that useful</pattern>
+     <that>AIML supports context through the use of the that tag to refer to previous bot answers, and via setting variables such as topic</that>
+     <template>The fourth word in this question is an example of how some words can only be understood in context.</template>
+ </category>
+ 
+</aiml>
+
